@@ -1,0 +1,58 @@
+body {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	background-image: url("../img/background.jpg");
+	background-clip: inherit;
+	color: white;
+}
+
+div {
+	margin: 0 auto;
+	color: white;
+}
+
+span {
+	font-size:5em;
+	font-family: Helvetica;
+}
+
+button {
+	border-radius: 5px;
+}
+
+#start {
+	font-size: 2.5em;
+	background-color: lightgreen;
+}
+
+#stop {
+	font-size: 2.5em;
+	background-color: red;
+}
+
+#lap {
+	font-size: 2.5em;
+	background-color: gold;
+}
+
+#restart {
+	font-size: 2.5em;
+	background-color: lightblue;
+}
+
+#clock {
+	padding: 50px;
+}
+
+#buttons {
+	padding-bottom: 50px;
+}
+
+#laptimes {
+	font-size: 0.5em;
+}
+
+.main {
+	
+}

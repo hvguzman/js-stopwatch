@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stopwatch: JS Miniproject</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- <script type="text/javascript" src="http://www.openjs.com/scripts/events/keyboard_shortcuts/shortcut.js"></script> -->
+	<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script> -->
+</head>
+<body>
+
+	<div class="main">
+		
+
+		<div id="clock">
+			<span id="hr">00</span>
+			<span>:</span>
+			<span id="min">00</span>
+			<span>:</span>
+			<span id="sec">00</span>
+			<span>:</span>
+			<span id="milli">00</span>
+		</div>
+
+		<div id="buttons">
+			<button  id="start" onclick="startWatch()">Start</button>
+			<button  id="stop" onclick="stopFunction()">Stop</button>
+			<button id="lap" onclick="lapLog()">Lap</button>
+			<button  id="restart" onclick="resetTimer()">Restart</button>
+		</div>
+		
+	</div>
+
+
+	<div id="laptimes">
+		<span>Log time here!</span>
+		<br>
+		<span id="hrlog">00</span>
+		<span>:</span>
+		<span id="minlog">00</span>
+		<span>:</span>
+		<span id="seclog">00</span>
+		<span>:</span>
+		<span id="millilog">00</span>
+	</div>
+
+		<p>Keyboard shortcuts: [still haven't added]</p>
+		<p>s - Start</p>
+		<p>o - Stop</p>
+		<p>l - Lap</p>
+		<p>r - Restart</p>
+
+	<script type="text/javascript">
+
+		// var myVar = setInterval(milliAdd,10)
+		var myVar = 0;
+		var milli = 0;
+		var sec = 0;
+		var min = 0;
+		var hr = 0;
+
+		function milliAdd(){
+				if(milli<100){
+					milli+=1
+					document.getElementById("milli").innerHTML = milli;
+				} if(milli==100){
+					secondAdd();
+					milli=0;
+					document.getElementById("milli").innerHTML = milli;
+					milli+=1;
+				}
+			}
+
+		function secondAdd(){
+			if(sec<60){
+				sec+=1
+				if(sec<10){
+					document.getElementById("sec").innerHTML = "0" + sec;	
+				}else{
+				document.getElementById("sec").innerHTML = sec;	
+				}
+			}
+			if(sec==60){
+				minAdd();
+				console.log(min)
+				sec=0;
+				document.getElementById("sec").innerHTML = sec;
+				sec+=1;
+				console.log(sec)
+			}
+		}
+
+		function minAdd(){
+			if(min<60){
+				min+=1
+				if(min<10){
+					document.getElementById("min").innerHTML = "0" + min;	
+				}else{
+					document.getElementById("min").innerHTML = min;	
+				}
+				
+			}
+			if (min==60){
+				hrAdd();
+				min=0;
+				document.getElementById("min").innerHTML = min;
+				min+=1;
+			}
+		}
+
+		function hrAdd(){
+			if(min == 60){
+				hr+=1
+				if(hr<10){
+					document.getElementById("hr").innerHTML = "0" + hr;	
+				} else{
+					document.getElementById("hr").innerHTML = hr;	
+				}
+				
+			}
+		}
+
+		function startWatch(){
+			myVar = setInterval(milliAdd,10)
+			var div = document.getElementById("start");
+			div.style.display = 'none';
+			// var milli = 0;
+			// var sec = 0;
+			// var min = 0;
+			// var hr = 0;
+		}
+
+		function lapLog(){
+			if(hr<10){
+					document.getElementById("hrlog").innerHTML = "0" + hr;	
+				} else{
+					document.getElementById("hrlog").innerHTML = hr;	
+				}
+			if(min<10){
+					document.getElementById("minlog").innerHTML = "0" + min;	
+				} else{
+					document.getElementById("minlog").innerHTML = min;	
+				}
+			if(sec<10){
+					document.getElementById("seclog").innerHTML = "0" + sec;	
+				} else{
+					document.getElementById("seclog").innerHTML = sec;	
+				}
+			if(milli<10){
+					document.getElementById("millilog").innerHTML = "0" + milli;	
+				} else{
+					document.getElementById("millilog").innerHTML = milli;	
+				}
+
+
+
+
+
+		}
+
+
+		// function startWatch(){
+		// 	var milli = 0;
+		// 	var sec = 0;
+		// 	var min = 0;
+		// 	var hr = 0;
+
+		// 	function milliAdd(){
+		// 		if(milli<100){
+		// 			milli++
+		// 			document.getElementById("milli").innerHTML = milli;
+		// 		} if(milli==100){
+		// 			secondAdd();
+		// 			milli=0;
+		// 			document.getElementById("milli").innerHTML = milli;
+		// 			milli+=1;
+		// 		}
+		// 	}
+
+		// 	function secondAdd(){
+		// 		if(sec<60){
+		// 			sec+=1
+		// 			if(sec<10){
+		// 				document.getElementById("sec").innerHTML = "0" + sec;	
+		// 			}else{
+		// 			document.getElementById("sec").innerHTML = sec;	
+		// 			}
+		// 		}
+		// 		if(sec==60){
+		// 			minAdd();
+		// 			console.log(min)
+		// 			sec=0;
+		// 			document.getElementById("sec").innerHTML = sec;
+		// 			sec+=1;
+		// 			console.log(sec)
+		// 		}
+		// 	}
+
+		// 	function minAdd(){
+		// 		if(min<60){
+		// 			min+=1
+		// 			if(min<10){
+		// 				document.getElementById("min").innerHTML = "0" + min;	
+		// 			}else{
+		// 				document.getElementById("min").innerHTML = min;	
+		// 			}
+					
+		// 		}
+		// 		if (min==60){
+		// 			hrAdd();
+		// 			min=0;
+		// 			document.getElementById("min").innerHTML = min;
+		// 			min+=1;
+		// 		}
+		// 	}
+
+		// 	function hrAdd(){
+		// 		if(min == 60){
+		// 			hr+=1
+		// 			if(hr<10){
+		// 				document.getElementById("hr").innerHTML = "0" + hr;	
+		// 			} else{
+		// 				document.getElementById("hr").innerHTML = hr;	
+		// 			}
+					
+		// 		}
+		// 	}
+
+		// }
+		
+		function stopFunction(){
+				clearInterval(myVar);
+				var div = document.getElementById("start");
+				div.style.display = 'inline';
+				// document.getElementById("milli").innerHTML = "0" + 0;
+				// document.getElementById("hr").innerHTML = "0" + 0;
+				// document.getElementById("sec").innerHTML = "0" + 0;
+				// document.getElementById("min").innerHTML = "0" + 0;
+			}
+
+		function resetTimer(){
+			milli = 0;
+			sec = 0;
+			min = 0;
+			hr = 0;
+			clearInterval(myVar);
+			document.getElementById("milli").innerHTML = "0" + 0;
+			document.getElementById("hr").innerHTML = "0" + 0;
+			document.getElementById("sec").innerHTML = "0" + 0;
+			document.getElementById("min").innerHTML = "0" + 0;
+			var div = document.getElementById("start");
+			div.style.display = 'inline';
+		}
+
+
+
+
+
+	</script>
+
+
+
+
+
+</body>
+</html>
