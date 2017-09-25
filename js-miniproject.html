@@ -6,7 +6,7 @@
 	<!-- <script type="text/javascript" src="http://www.openjs.com/scripts/events/keyboard_shortcuts/shortcut.js"></script> -->
 	<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script> -->
 </head>
-<body>
+<body onkeypress="keyS()">
 
 	<div class="main">
 		
@@ -43,7 +43,7 @@
 		<span id="millilog">00</span>
 	</div>
 
-		<p>Keyboard shortcuts: [still haven't added]</p>
+		<p>Keyboard shortcuts:</p>
 		<p>s - Start</p>
 		<p>o - Stop</p>
 		<p>l - Lap</p>
@@ -57,6 +57,18 @@
 		var sec = 0;
 		var min = 0;
 		var hr = 0;
+
+		function keyS(){
+			var key = event.keyCode;
+			if(key == 115){
+				startWatch()
+			}else if(key == 111){
+				stopFunction()
+			}else if(key == 108){
+				lapLog()
+			}else if(key == 114)
+				resetTimer()
+		}
 
 		function milliAdd(){
 				if(milli<100){
